@@ -1,0 +1,122 @@
+"""
+Element density extension for periodictable in g/cm^3 or g/L
+source https://en.wikipedia.org/wiki/Densities_of_the_elements_(data_page)
+David R. Lide (ed), CRC Handbook of Chemistry and Physics, 84th Edition. CRC Press. Boca Raton, Florida, 2003; Section 4, Properties of the Elements and Inorganic Compounds; Physical Constants of Inorganic Compounds
+Example --> print U density in g/cm^3 or g/L
+>>> import density
+>>> import periodictable as pt
+>>> print pt.U.density
+"""
+import periodictable.core
+
+def init(table, reload=False):
+		if 'density' in table.properties and not reload:
+				return table.properties.append('density')
+
+		periodictable.core.density = None
+
+		periodictable.core.density_units = 'g/cm^3, g/L'
+
+		for symbol,eldata in data.items():
+				el = table.symbol(symbol)
+				el.density = eldata
+# Data Table
+data = dict(
+		n 		=		0.,
+		*H 		=		0.082,
+		*He 	=		0.164,
+		Li 		=		0.534,
+		Be 		=		1.850,
+		B 		=		2.340,
+		C 		=		2.200,
+		*N 		=		1.145,
+		*O 		=		1.308,
+		*F 		=		1.553,
+		*Ne 	=		0.825,
+		Na		=		0.970,
+		Mg 		=		1.740,
+		Al 		=		2.700,
+		Si 		=		2.329,
+		P 		=		1.823,
+		S 		= 		2.070,
+		*Cl 	=		2.898,
+		*Ar 	=		1.633,
+		K 		=		0.890,
+		Ca 		=		1.540,
+		Sc 		=		2.990,
+		Ti 		=		4.506,
+		V 		=		6.000,
+		Cr 		=		7.150,
+		Mn 		=		7.300,
+		Fe 		=		7.870,
+		Co 		=		8.860,
+		Ni 		=		8.900,
+		Cu 		=		8.960,
+		Zn 		=		7.140,
+		Ga 		=		5.910,
+		Ge 		=		5.323,
+		As 		=		5.750,
+		Se 		=		4.810,
+		Br 		=		3.103,
+		*Kr 	=		3.425,
+		Rb 		=		1.530,
+		Sr 		=		2.640,
+		Y 		=		4.470,
+		Zr 		=		6.520,
+		Nb 		=		8.570,
+		Mo 		=		10.200,
+		Tc 		=		11.000,
+		Ru 		=		12.100,
+		Rh 		=		12.400,
+		Pd 		=		12.000,
+		Ag 		=		10.500,
+		Cd 		=		8.690,
+		In 		=		7.310,
+		Sn 		=		7.265,
+		Sb 		=		6.680,
+		Te 		=		6.240,
+		I 		=		4.933,
+		*Xe 	=		5.366,
+		Cs 		=		1.930,
+		Ba 		=		3.620,
+		La 		=		6.150,
+		Ce 		=		6.770,
+		Pr 		=		6.770,
+		Nd 		=		7.010,
+		Pm 		=		7.260,
+		Sm 		=		7.520,
+		Eu 		=		5.240,
+		Gd 		=		7.900,
+		Tb 		=		8.230,
+		Dy		=		8.550,
+		Ho 		=		8.800,
+		Er 		=		9.070,
+		Tm 		=		9.320,
+		Yb 		=		6.900,
+		Lu 		=		9.840,
+		Hf 		=		13.300,
+		Ta 		=		16.400,
+		W 		=		19.300,
+		Re 		=		20.800,
+		Os 		=		22.590,
+		Ir 		=		22.500,
+		Pt 		=		21.500,
+		Au 		=		19.300,
+		Hg 		=		13.534,
+		Tl 		=		11.800,
+		Pb 		=		11.300,
+		Bi 		=		9.790,
+		Po 		=		9.200,
+		At 		=		"not found"
+		Rn 		=		9.074,
+		Fr 		=		1.870,
+		Ra 		=		5.000,
+		Ac 		=		10.000,
+		Th 		=		11.700,
+		Pa 		=		15.400,
+		U 		=		19.100,
+		Np 		=		20.200,
+		Pu 		=		19.700,
+		Am 		=		12.000,
+		Cm 		=		13.510,
+)
